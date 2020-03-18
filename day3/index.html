@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Welcome to Javascript Sessions </h3>
+    <h4>Browser contains</h4>
+    <ul>
+        <li>Javascript Engine V8</li>
+        <li>can be accessed by Console developer tab</li>
+    </ul>
+    <script>
+        // DOM - document Object model 
+        function read(book,book1){ // read function definition
+            var insideFunction = 15;
+            console.log(book + " " + book1);
+            console.log(arguments[0])
+            console.log(this);
+            return 10;
+        }
+        var returnValue = read("w3schools book", "Javascript");
+        var obj = {
+            name: "Human Being",
+            prop: function(){
+                console.log("this is a method")
+            }
+        }
+        obj.name
+        obj.prop();// method
+        var liElememts = document.getElementsByTagName("li");
+        liElememts[0].onclick = function(){
+            alert("first event registration");
+        }
+    </script>
+</body>
+</html>
