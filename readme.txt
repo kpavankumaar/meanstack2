@@ -7,7 +7,8 @@ DOM  + javascript
 day3 
     V8 engine 
 day4 
-    Arrays, strings, 
-
+    event registration -> ajax
+Day5 
+    arrays and strings, date methods 
 
 angular 8 release features 
