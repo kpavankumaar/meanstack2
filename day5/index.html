@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Welcome to Javascript Sessions </h3>
+    <h4>Browser contains</h4>
+    <div id="eventRegistrationExample">
+        <ul>
+            <li>Bubbling and capturing</li>
+        
+        </ul>
+    </div>
+    <script>
+        var eventRegisEg1 = document.getElementById("eventRegistrationExample");
+        var eventRegisEg2 = eventRegisEg1.querySelector('ul');
+        var eventRegisEg3 = eventRegisEg2.querySelector('li');
+
+
+        eventRegisEg1.onclick = function(data){
+            console.log("event 1", data);
+        }
+        eventRegisEg2.onclick = function (data) {
+                console.log("event 2", data);
+        }
+        eventRegisEg3.onclick = function (data) {
+                console.log("event 3", data);
+        }
+
+
+
+
+        console.log(name1);
+        var name1 = "srikanth"; 
+        console.log(name1);
+        function readBook1 (data){
+            
+            var name1 = "ravi";
+            
+            readBook2("book2");
+            console.log("read this"+ " "+data+ " " + name1);
+        }
+        function readBook2 (params){
+            var name1 = "Radha";
+            
+            readBook3("book3");
+            console.log("read this" + " " + params + " " + name1);
+        }
+
+        function readBook3 (params) {
+            console.log("read this" + " " + params + " " + name1)
+        }
+
+        readBook1("Book1");
+        console.log(name1);
+
+        
+    </script>
+</body>
+</html>
