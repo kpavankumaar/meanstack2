@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Welcome to Javascript Sessions </h3>
+    <h4>Browser contains</h4>
+    <div id="eventRegistrationExample">
+        <ul>
+            <li>Ajax + callbacks + Promise</li>
+        
+        </ul>
+    </div>
+    <script>
+        // how do we create object 
+        var watch = {
+            shape: 'circular',
+            dialColor: 'white',
+            type: "wristwatch",
+            
+        };
+        watch.owner = "Krishna";
+        var watch1 = watch;
+        var watch2 = Object.create(watch);
+        console.log(this);
+        function LoginCredentials(username , password){
+            console.log(this);
+            this.username = username;
+            this.pwd = password;
+        }
+
+        var loginDetails = new LoginCredentials("Krishna", "pwd123")    
+        
+
+
+
+        watch1.owner = "Balaram";// call by reference 
+
+        var value1 = 10;
+        var value2 = value1;
+        value2 = 15;
+        console.log(value1); // call by value 
+
+
+        // get , comparison operators, and operator, xhr.readyState , xhr.status
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "https://jsonplaceholder.typicode.com/users", true)
+        xhr.onreadystatechange = function(resp){
+            if(xhr.status == 200 && xhr.readyState == 4){
+                console.log(xhr.response);
+            }
+        }
+        xhr.send("null");
+        
+
+    </script>
+</body>
+</html>
