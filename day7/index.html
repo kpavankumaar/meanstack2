@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        label{
+            width: 100px;
+            display: inline-block;
+            margin:10px
+        }
+        button{
+            width:75px;
+            display: inline-block;
+            margin:10px;
+            border-radius : 5px;
+            background-color: seagreen;
+            color:white;
+            font-size: 16px;
+        }
+    
+    </style>
+</head>
+<body>
+    <form id="login">
+        <label>Username </label><input type="text"> <br>
+        <label>Password </label><input type="password">
+        <br>
+        <button>Signin</button>
+    </form>
+    <script >
+        var loginInfo = document.getElementById("login");
+        var userName = loginInfo.querySelector("input[type=text]");
+        var password = loginInfo.querySelector("input[type=password]");
+        var signinButton = loginInfo.querySelector("button");
+        function UserCredentialFn(username, password){
+            this.username = username;
+            this.password = password;
+
+        }
+        function loginListener(e) {
+                console.log(e);
+                e.preventDefault();
+                console.log("data", this);
+                var userNameValue = userName.value;
+                var passwordValue = password.value;
+                var userCredentials = new UserCredentialFn(userNameValue, passwordValue);
+                console.log(userCredentials);
+            }    
+        signinButton.addEventListener("click", loginListener);
+        var num = 5;
+        while (num){
+            num = num - 1;
+            console.log("data")
+        }
+        setTimeout(function (){
+            console.log("after 5000 milli second ie five seconds")
+        }, 50000);
+    </script>
+</body>
+</html>

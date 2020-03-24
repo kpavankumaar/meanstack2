@@ -10,10 +10,13 @@ day3
         is divided into creation phase and execution phase 
 day4 
     event registration 
+
 Day5 
     handlers- executioncontext  ,ajax , Promises 
     
-Day6 
+Day6
+    this, DOM + function constructors , syncronous and asyncronous 
+
     arrays and strings, date methods 
 
 angular 8 release features 
