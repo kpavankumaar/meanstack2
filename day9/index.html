@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Welcome to Javascript Sessions </h3>
+    <h4>Browser contains</h4>
+    <div id="eventRegistrationExample">
+        <ul>
+            <li>Ajax + callbacks + Promise</li>
+
+        </ul>
+        <input type="file" name="file" id="">
+    </div>
+    <script>
+
+        function getData(method, url) {   
+            var promise = new Promise(function(resolve, reject){  
+                var xhr = new XMLHttpRequest();
+            
+                xhr.open(method, url, true)
+                xhr.setRequestHeader("content-type", "application/json");
+                xhr.responseType = "json";
+                xhr.onreadystatechange = function (resp) {
+                    if (xhr.status == 200 && xhr.readyState == 4) {
+                        setTimeout((data) => {
+                            resolve(xhr.response[0].name);    
+                        }, 2000);
+                        
+                    }else{
+                        //reject("rejected ",xhr.status);
+                    }
+                }
+                
+                xhr.onerror = function (err) {
+                    console.log(xhr.readyState);
+                    reject(err);
+                }
+                xhr.send();
+            })
+            return promise;
+        }
+        getData("get","https://jsonplaceholder.typicode.com/users" )
+        .then(function(data){
+            console.log("response ", data);
+        })
+        .catch(function(err){
+            console.log("error", err);
+        })
+
+
+
+
+
+
+
+        // get , comparison operators, and operator, xhr.readyState , xhr.status
+
+        // var xhr = new XMLHttpRequest();
+        //var url = "https://developer.mozilla.org";
+        //var url = "https://jsonplaceholder.typicode.com/users";
+//        var url = "https://jsonplaceholder.typicode.com/posts";
+        //var url = "https://postman-echo.com/post";
+        //xhr.open("get", url , true)
+        
+        // xhr.open("POST", url , true)
+        // xhr.setRequestHeader("content-type", "application/json");
+        // xhr.setRequestHeader("Authorization","Basic "+ "");
+        // xhr.responseType = "json";
+        // xhr.onreadystatechange = function(resp){
+        //     if(xhr.status == 200 && xhr.readyState == 4){
+        //         console.log(xhr.response[0].name);
+        //     }
+        // }
+        // var data = window.btoa(JSON.stringify({ "username": "Krishna" }));
+        // xhr.onerror = function (err) {
+        //     console.log(xhr.readyState);
+        //     console.log(err);
+        // }
+        // xhr.send(data);
+
+
+    </script>
+</body>
+
+</html>

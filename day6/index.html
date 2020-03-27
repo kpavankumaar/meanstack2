@@ -48,15 +48,18 @@
         // get , comparison operators, and operator, xhr.readyState , xhr.status
 
         var xhr = new XMLHttpRequest();
-        xhr.open("get", "https://jsonplaceholder.typicode.com/users", true)
+        xhr.open("get", "https://jsonplaceholder.typicode.com", true)
         xhr.setRequestHeader("content-type","application/json");
         xhr.responseType = "json";
-        xhr.onreadystatechange = function(resp){
-            if(xhr.status == 200 && xhr.readyState == 4){
-                console.log(xhr.response[0].name);
-            }
+        // xhr.onreadystatechange = function(resp){
+        //     if(xhr.status == 200 && xhr.readyState == 4){
+        //         console.log(xhr.response[0].name);
+        //     }
+        // }
+        xhr.onerror = function(err){
+            console.log(err);
         }
-        xhr.send("null");
+        xhr.send();
         
 
     </script>
