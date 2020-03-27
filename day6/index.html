@@ -43,15 +43,17 @@
         var value2 = value1;
         value2 = 15;
         console.log(value1); // call by value 
-
+        
 
         // get , comparison operators, and operator, xhr.readyState , xhr.status
 
         var xhr = new XMLHttpRequest();
         xhr.open("get", "https://jsonplaceholder.typicode.com/users", true)
+        xhr.setRequestHeader("content-type","application/json");
+        xhr.responseType = "json";
         xhr.onreadystatechange = function(resp){
             if(xhr.status == 200 && xhr.readyState == 4){
-                console.log(xhr.response);
+                console.log(xhr.response[0].name);
             }
         }
         xhr.send("null");
