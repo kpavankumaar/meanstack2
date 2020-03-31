@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // customer wants to by furniture from furniture shop
+
+        function Product(chairs, diningSet, sofa ){
+            this.item1 = chairs;
+            this.item2 = diningSet;
+            this.item3 = sofa;
+        }
+        function Chairs(qty, make){
+            this.title = "Chair"
+            this.quantity = qty;
+            this.make = make;  
+        }
+
+        Chairs.prototype.chairDetails = function () {
+            console.log("Title", this.title, "quantity", this.quantity);
+        };
+
+        var chairsInfo = new Chairs(2, "wooden");
+
+        var productList1 =  new Product(chairsInfo , 1, 1);
+
+    </script>
+</body>
+</html>
