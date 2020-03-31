@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // fetch 
+        // 3 api calls 
+        // 1 api call, 2 api call , 3 api call 
+        // 3 api calls results are available i want to perform
+        // arrays , strings, prototype, call, bind, apply 
+        var arr = [1,2,3,4,5];
+        var arr1 = arr.slice(0,3);
+        //arr.shift()
+        //arr.pop();
+        //var arrLength = arr.unshift(0);
+
+       // arrLength = arr.push(6);
+        arr.splice(3, 0, 10);
+        var data;
+        if(4 == "4"){
+            console.log("WORKING");
+        }
+
+        var num = 10;
+        while(num){
+           console.log("read number of times ", num); 
+           num = num -1 ;
+        }
+        for(var i = 0; i < arr.length; i = i + 1  ){
+            console.log("data to printed out "+" index number " + i + " value "+ arr[i]);
+        }
+        var obj = {
+            name:"ravi",
+            age: 25,
+            address: "hyd"
+        }
+        for (var key in obj) {
+            console.log(key);
+            console.log(obj[key]);
+            // if (object.hasOwnProperty(key)) {
+            //     const element = object[key];
+                
+            // }
+        }
+        delete obj.address;
+        
+        
+    </script>
+</body>
+</html>

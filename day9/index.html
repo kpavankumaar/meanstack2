@@ -20,23 +20,23 @@
     <script>
 
         function getData(method, url) {   
-            var promise = new Promise(function(resolve, reject){  
+            var promise = new Promise(function (resolve, reject) {
                 var xhr = new XMLHttpRequest();
-            
+
                 xhr.open(method, url, true)
                 xhr.setRequestHeader("content-type", "application/json");
                 xhr.responseType = "json";
                 xhr.onreadystatechange = function (resp) {
                     if (xhr.status == 200 && xhr.readyState == 4) {
                         setTimeout((data) => {
-                            resolve(xhr.response[0].name);    
+                            resolve(xhr.response);
                         }, 2000);
-                        
-                    }else{
+
+                    } else {
                         //reject("rejected ",xhr.status);
                     }
                 }
-                
+
                 xhr.onerror = function (err) {
                     console.log(xhr.readyState);
                     reject(err);
@@ -45,15 +45,21 @@
             })
             return promise;
         }
-        getData("get","https://jsonplaceholder.typicode.com/users" )
-        .then(function(data){
+        var recievedInfo = getData("get","https://jsonplaceholder.typicode.com/users" )
+        recievedInfo.then(function(data){
             console.log("response ", data);
+            return data;
         })
         .catch(function(err){
             console.log("error", err);
         })
-
-
+        
+        recievedInfo.then(function(data){
+            console.log(data);
+            return data;
+        }).then(function(data){ 
+            console.log(data);
+        })
 
 
 
