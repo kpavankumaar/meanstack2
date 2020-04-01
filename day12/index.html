@@ -14,7 +14,10 @@
             this.item1 = chairs;
             this.item2 = diningSet;
             this.item3 = sofa;
+            //DiningSet.call(this, diningSet[0], diningSet[1]);
+            DiningSet.apply(this, diningSet);
         }
+        
         function Chairs(qty, make){
             this.title = "Chair"
             this.quantity = qty;
@@ -24,10 +27,24 @@
         Chairs.prototype.chairDetails = function () {
             console.log("Title", this.title, "quantity", this.quantity);
         };
+        function DiningSet(quantity, make){
+            this.diningSetQty = quantity;
+            this.diningMake = make;
+        }
+        DiningSet.prototype.diningDetails = function () {
+            console.log("Make", this.diningMake , "quantity", this.diningSetQty);
+        }
+
+
+        Product.prototype = Object.create(DiningSet.prototype);
+        Product.prototype.details = function () {
+                console.log(this.item1, "data", this.item2);
+        }
+        Product.prototype.constructor = Product;
 
         var chairsInfo = new Chairs(2, "wooden");
 
-        var productList1 =  new Product(chairsInfo , 1, 1);
+        var productList1 =  new Product(chairsInfo , [1, "Metal"], 1);
 
     </script>
 </body>
