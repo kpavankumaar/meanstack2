@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+     
+    <script>
+    var urls = [ "https://jsonplaceholder.typicode.com/photos", "https://jsonplaceholder.typicode.com/comments","https://jsonplaceholder.typicode.com/todos"]
+    // var urlCall = urls.map(function(item){
+    //     console.log("item", item);
+    //     fetch(item).then(function(response){
+    //         response.json().then(function(data){
+    //             console.log(data);
+    //         })
+    //     })
+    // })
+    function task1 (){
+        return fetch(urls[0]);
+    }
+    function task2 (){
+        return fetch(urls[1]);
+    }
+    function task3(){
+        return fetch(urls[2]);        
+    }
+    function runSeries(){
+        return Promise.resolve()
+        .then(function(){
+            return fetch(urls[0]).then(function(response){
+                response.json().then(function(data){
+                    console.log(data);
+                })
+            });
+        })
+        .then(function () {
+            return task2().then(function (response) {
+                response.json().then(function (data) {
+                    console.log(data);
+                })
+            });
+        })
+        .then(function () {
+            return task3().then(function (response) {
+                response.json().then(function (data) {
+                    console.log(data);
+                })
+            });
+        })
+    }
+    runSeries();
+    </script>
+</body>
+</html>
