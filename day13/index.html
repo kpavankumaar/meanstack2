@@ -10,48 +10,78 @@
      
     <script>
     var urls = [ "https://jsonplaceholder.typicode.com/photos", "https://jsonplaceholder.typicode.com/comments","https://jsonplaceholder.typicode.com/todos"]
-    // var urlCall = urls.map(function(item){
-    //     console.log("item", item);
-    //     fetch(item).then(function(response){
-    //         response.json().then(function(data){
+    var resolvedPromise1 = setTimeout(function(){return fetch(urls[0])}, 2000);
+    var resolvedPromise2 = Promise.resolve().then(function () {
+            return fetch(urls[1])
+        })
+    var resolvedPromise3 = Promise.resolve().then(function () {
+            return fetch(urls[2])
+        })
+    Promise.all([resolvedPromise1, resolvedPromise2, resolvedPromise3]).then(function(data){
+        console.log(data);
+    })
+
+
+
+
+    //var urlCall = urls.map(function(item){
+        //console.log("item", item);
+        //fetch(item).then(function);
+        // return fetch(item).then(function(response){
+        //     response.json().then(function(data){
+        //         //console.log(data);
+        //     })
+        // })
+    //})
+    // Promise.all(urlCall).then(function(response){
+    //     response.map(function(item){
+    //         item.json().then(function(data){
     //             console.log(data);
     //         })
     //     })
     // })
-    function task1 (){
-        return fetch(urls[0]);
-    }
-    function task2 (){
-        return fetch(urls[1]);
-    }
-    function task3(){
-        return fetch(urls[2]);        
-    }
-    function runSeries(){
-        return Promise.resolve()
-        .then(function(){
-            return fetch(urls[0]).then(function(response){
-                response.json().then(function(data){
-                    console.log(data);
-                })
-            });
-        })
-        .then(function () {
-            return task2().then(function (response) {
-                response.json().then(function (data) {
-                    console.log(data);
-                })
-            });
-        })
-        .then(function () {
-            return task3().then(function (response) {
-                response.json().then(function (data) {
-                    console.log(data);
-                })
-            });
-        })
-    }
-    runSeries();
+
+
+    //sequence of urls 
+    
+    // function task1 (){
+    //     return fetch(urls[0]);
+    // }
+    // function task2 (){
+    //     return fetch(urls[1]);
+    // }
+    // function task3(){
+    //     return fetch(urls[2]);        
+    // }
+    // function runSeries(){
+    //     return Promise.resolve()
+    //     .then(function(){
+    //         return fetch(urls[0]).then(function(response){
+    //             response.json().then(function(data){
+    //                 console.log(data);
+    //             })
+    //         });
+    //     })
+    //     .then(function () {
+    //         return task2().then(function (response) {
+    //             response.json().then(function (data) {
+    //                 console.log(data);
+    //             })
+    //         });
+    //     })
+    //     .then(function () {
+    //         return task3().then(function (response) {
+    //             response.json().then(function (data) {
+    //                 console.log(data);
+    //             })
+    //         });
+    //     })
+    // }
+    // runSeries();
+
+
+
+
     </script>
 </body>
 </html>
