@@ -9,6 +9,7 @@
 <body>
      
     <script>
+        
     var urls = [ "https://jsonplaceholder.typicode.com/photos", "https://jsonplaceholder.typicode.com/comments","https://jsonplaceholder.typicode.com/todos"]
     var resolvedPromise1 = setTimeout(function(){return fetch(urls[0])}, 2000);
     var resolvedPromise2 = Promise.resolve().then(function () {

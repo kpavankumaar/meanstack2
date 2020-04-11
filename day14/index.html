@@ -8,11 +8,25 @@
 </head>
 <body>
     <script>
-        function readBook(bookname){
-            return function readEnglishBooks(){
-                console.log(bookname);
+        // closures / 
+        (function(){
+            function readBook(bookname){
+                return function (){
+                    console.log(bookname);
+                }
             }
-        }
+            
+            readBook("Javascript")();
+            console.log(multiplesOf2);
+            function multiples(a,b){
+                console.log(a * b)
+            }
+            var multiplesOf2 = multiples.bind({}, 2);
+            console.log(multiplesOf2);
+            //console.log(num);
+        })()
     </script>
+    <script src="./solution.js"></script>
+    <script src="./service.js"></script>
 </body>
 </html>
