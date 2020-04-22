@@ -1,1 +1,32 @@
-<h2> welcom to angular sessions </h2>
+<h1 [style.color] = 'title.prop.color'>{{title.project}}</h1>
+<p> welcome to {{ 'angular' + ' sessions' }} </p>
+<span>No of sessions {{ title.duration }}</span>
+<div [ngStyle] = "elementColor">
+    <label for="username">Username</label> 
+    <input #user type="text" id="username" (keyup) = "changeInputMethod(user.value)" [value] = "userInput"><br><br>
+    <label for="Password">Password</label>
+    <input type="password" id="password"><br><br>
+    <input #name type="text" id="name" placeholder= "name" (keyup.enter) = "changeInputMethod(name.value)">
+    <br>
+    <br>
+    <button (click) = "loadData()">Submit</button>
+
+</div>
+<p>User Entered Value {{userInput}} {{user.value}}</p>
+
+<ng-container *ngFor= "let item of items">
+    <li>{{item}}</li>
+</ng-container>
+
+<ng-container *ngIf = "data else load">
+    <p>Show this paragraph content</p>
+</ng-container>
+
+<ng-template #load> 
+    <p>ng template directive </p>
+</ng-template>
+
+<app-basic [sampleItems] = "items" (sendChangedDetails)= "dataFromChildComp($event)"></app-basic>
+<app-basic></app-basic>
+<app-basic></app-basic>
+<ng-container *ngTemplateOutlet="load"></ng-container>
