@@ -44,24 +44,35 @@
         value2 = 15;
         console.log(value1); // call by value 
         
-
+        var dataFromServer;
         // get , comparison operators, and operator, xhr.readyState , xhr.status
-
-        var xhr = new XMLHttpRequest();
-        xhr.open("get", "https://jsonplaceholder.typicode.com", true)
-        xhr.setRequestHeader("content-type","application/json");
-        xhr.responseType = "json";
-        // xhr.onreadystatechange = function(resp){
-        //     if(xhr.status == 200 && xhr.readyState == 4){
-        //         console.log(xhr.response[0].name);
-        //     }
-        // }
-        xhr.onerror = function(err){
-            console.log(err);
-        }
-        xhr.send();
         
-
+        var xhr = new XMLHttpRequest();
+        function getData(send){
+            xhr.open("get", "https://jsonplaceholder.typicode.com/posts", true)
+            xhr.setRequestHeader("content-type","application/json");
+            xhr.responseType = "json";
+            xhr.onreadystatechange = function(resp){
+                if(xhr.status == 200 && xhr.readyState == 4){
+                    console.log(xhr.response);
+                    dataFromServer = xhr.response[0];
+                    send(xhr.repsonse[0]);
+                }
+            }
+            xhr.onerror = function(err){
+                console.log(err);
+            }
+            xhr.send();
+        }
+        function dataFn(){
+            getData(function(response){
+                document.getElementById('eventRegistrationExample').innerText = response;
+            })
+        }
+        dataFn();
+        
+        
     </script>
+
 </body>
 </html>

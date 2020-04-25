@@ -1,5 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { observerable1$ } from 'src/app/basicdetail/basicdetail.component';
 // import {  } from 'events';
+function runData(){
+  let data;
+  observerable1$.subscribe((item) => {
+    console.log(`this is from basic detail component ${item}`);
+    data = item;
+  });
+  return data;
+}
 
 @Component({
   selector: 'app-basic',
@@ -14,6 +23,7 @@ export class BasicComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.sampleItems);
+    console.log("data", runData());
   }
   sendDataToParent(){
     ++this.count;
