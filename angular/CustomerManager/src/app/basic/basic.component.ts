@@ -29,5 +29,14 @@ export class BasicComponent implements OnInit {
     ++this.count;
     console.log(this.count);
     this.sendChangedDetails.emit(this.count);
+    // let stringArray // 1000 string;
+    // stringArray.map(str => str.toUpperCase())
+    // .filter(/^[A-Z]+$/)
+    // .forEach(str => console.log(str));
+
+    // stringObservable$.map(str => str.toUpperCase())
+    // .filter(/^[A-Z]+$/)
+    // .subscribe(str => console.log(str));
   }
+
 }

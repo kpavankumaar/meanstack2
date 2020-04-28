@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SampleService } from '../sample.service';
+
 
 export const observerable1$ = Observable.create((item) => {
   item.next('one');
@@ -15,13 +17,14 @@ export const observerable1$ = Observable.create((item) => {
 @Component({
   selector: 'app-basicdetail',
   templateUrl: './basicdetail.component.html',
-  styleUrls: ['./basicdetail.component.css']
+  styleUrls: ['./basicdetail.component.css'],
+  providers: []
 })
 export class BasicdetailComponent implements OnInit {
   urlData;
   observable$;
   observer$;
-  constructor() {
+  constructor(public sampleServ: SampleService) {
     this.observable$ = Observable.create((item) => {
       item.next('one');
       item.next('two');
@@ -37,7 +40,7 @@ export class BasicdetailComponent implements OnInit {
       error: (v) => { console.log(v); },
       complete: (val) => { console.log(val); }
     };
-    const firstSubscription = this.observable$.subscribe(this.observer$);
+    const firstSubscription = this.observable$.subscribe((dataItem) => { console.log(dataItem); }, (v) => { console.log(v); }, (val) => { console.log(val); });
     setTimeout(() => {
       firstSubscription.unsubscribe();
     }, 1000);
@@ -45,7 +48,7 @@ export class BasicdetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    console.log('dependency Injection', this.sampleServ.data);
       setTimeout(() => {
         this.urlData = "";
       }, 3000);
