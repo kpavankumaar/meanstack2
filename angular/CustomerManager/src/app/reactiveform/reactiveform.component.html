@@ -1,0 +1,79 @@
+<!-- <div>
+    <label for="firstname">First Name</label>
+    <input type="text" [(ngModel)]="dataBinding" id="firstname">
+</div> -->
+<form [formGroup] = "formModelForTemplate" (ngSubmit) = "sendData()">
+    <div>
+        <label for="firstname">First Name</label>
+        <input 
+            type="text" 
+            name="firstname"  
+            id="firstname"
+            formControlName = 'firstName' 
+            #fname
+            [ngClass] = "{invalidInput: formModelForTemplate.controls.firstName.invalid}"
+            
+            pattern="^[a-zA-Z]+$">
+
+        <p [ngClass] = "{isValid: formModelForTemplate.controls.firstName.errors.required}">this is a mandatory field</p>
+        <p > Use only alphabets</p>
+         
+        
+         
+    </div>
+
+    <div>
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname" id="lastname">
+    </div>
+    <div>
+        <span for="phoneValidation">Phone</span>   
+        <input type="radio" name="validation" formControlName = "validation" value = "phoneValid" (change) = "chooseValidation()">
+        <span for="emailValidation">Email</span>
+        <input type="radio" name="validation" formControlName = "validation" value = "emailValid" (change) = "chooseValidation()">
+
+        
+    </div>
+    <div>
+        <label for="phone">Phone Number</label>
+        <input type="phone" name="phone" id="phone" formControlName = "phone">
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" formControlName="email">
+    </div>
+    <div formGroupName = "address">
+        <h3>Address</h3>
+        <div>
+            <label for="hno"> House Number</label>
+            <input type="text" id="hno" formControlName="hno">
+            <p *ngIf = "formModelForTemplate.get('address.hno').invalid"> House Number is mandatory</p>
+        </div>
+
+        <div>
+            <label for="locality"> Locality</label>
+            <input type="text" id="locality">
+        </div>
+        <div>
+            <label for="city"> City</label>
+            <input type="text" id="city">
+        </div>
+        <div>
+            <label for="state"> State</label>
+            <input type="text" id="State">
+        </div>
+        <div>
+            <label for="country"> Country</label>
+            <select name="" id="country" >
+                <ng-container *ngFor = "let item of countryList">
+                    <option value="item">{{item}}</option>
+                </ng-container>
+                
+            </select>
+        </div>
+
+    </div>
+    <button>Submit</button>
+    
+
+</form>

@@ -1,0 +1,11 @@
+.isInValid{
+    border:1px solid red;
+}
+
+/* #firstname + p{
+    display:none;
+} */
+#firstname + p.isInValidFont{
+    display: block;
+    color:red;
+}

@@ -6,12 +6,17 @@ import { CustomersListViewComponent } from '../customers-list-view/customers-lis
 
 const routes: Routes = [
   {
-  path: '',
-  component: CustomersCardViewComponent,
-  children: [
-    {path: 'details', component: CustomersListViewComponent}
-  ]
-}
+    path: '',
+    component: CustomersCardViewComponent,
+    children: [
+      {path: 'details', component: CustomersListViewComponent},
+      {
+        path: 'product',
+        loadChildren: () => import('../product/product.module').then(m => m.ProductModule )
+      }
+    ]
+
+  }
 ];
 
 @NgModule({

@@ -1,0 +1,41 @@
+
+<!-- <div>
+    <label for="firstname">First Name</label>
+    <input type="text" [(ngModel)]="dataBinding" id="firstname">
+</div> -->
+<form #formData ='ngForm' (ngSubmit) = "templateFormDataBinding(formData)">
+    <div>
+        <label for="firstname" >First Name</label>
+        <input 
+            type="text" 
+            name = "firstname" 
+            #fname = "ngModel"
+            ngModel
+            id="firstname" 
+            [ngClass] = "{isInValid: formData.controls.firstname?.invalid && fname.touched && fname.errors?.pattern}"
+            required
+            minlength = 5
+            
+            pattern="^[a-zA-Z]+$"
+            >
+        
+        <p *ngIf = "fname.errors?.required && fname.touched" [ngClass] = "{isInValidFont: formData.controls.firstname?.invalid}">this is a mandatory field</p>
+        <p *ngIf = "fname.errors != null ? (fname.errors.pattern != undefined ? true : false)  : false  "> Use only alphabets</p>
+        <p *ngIf = "formData.controls.firstname?.errors.minlength" > Number of characters must be greater than 5 </p>
+
+    </div>
+    <div>
+        <label for="lastname">Last Name</label>
+        <input type="text" name = "lastname" ngModel id="lastname" required>
+    </div>
+    <button >Submit</button>
+    <p>{{dataBinding}}</p>
+    <p>Valid : {{formData.controls.firstname?.valid}}</p>
+    <!-- <p>Valid : {{formData.get('firstname').valid}}</p> -->
+    <p>inValid : {{formData.controls.firstname?.invalid}}</p>
+    <p>Touched : {{formData.controls.firstname?.touched}}</p>
+    <p>untouched : {{formData.controls.firstname?.untouched}}</p>
+    <p>pristine : {{formData.controls.firstname?.pristine}}</p>
+    <p>dirty : {{formData.controls.firstname?.dirty}}</p>
+    
+</form>

@@ -1,0 +1,14 @@
+#firstname ~ p{
+    display:none;
+}
+#firstname ~ p.isValid{
+    display:block;
+    color:red;
+}
+.invalidInput{
+    border:1px solid red;
+}
+label{
+    width:200px;
+    display:inline-block;
+}
