@@ -28,19 +28,30 @@
     </div>
     <div>
         <span for="phoneValidation">Phone</span>   
-        <input type="radio" name="validation" formControlName = "validation" value = "phoneValid" (change) = "chooseValidation()">
+        <input type="radio" name="validation"  formControlName = "validation" value = "phoneValid" (change) = "chooseValidation()">
         <span for="emailValidation">Email</span>
         <input type="radio" name="validation" formControlName = "validation" value = "emailValid" (change) = "chooseValidation()">
-
-        
     </div>
     <div>
         <label for="phone">Phone Number</label>
-        <input type="phone" name="phone" id="phone" formControlName = "phone">
+        <input 
+        type="phone" 
+        name="phone" 
+        id="phone" 
+        formControlName = "phone"
+        [ngClass]= "{invalidInput: this.formModelForTemplate.get('phone').errors?.required}"
+        
+        >
     </div>
     <div>
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" formControlName="email">
+        <input 
+        type="email" 
+        name="email" 
+        id="email" 
+        formControlName="email"
+        [ngClass]= "{invalidInput: this.formModelForTemplate.get('email').errors?.required}"
+        >
     </div>
     <div formGroupName = "address">
         <h3>Address</h3>
