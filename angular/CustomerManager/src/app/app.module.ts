@@ -11,6 +11,7 @@ import { SampleService } from './sample.service';
 import { CustomersModule } from './customers/customers.module';
 import { TemplateformComponent } from './templateform/templateform.component';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
+import { DataService } from './core/service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,11 @@ import { ReactiveformComponent } from './reactiveform/reactiveform.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [SampleService],
+  providers: [SampleService, DataService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(){
+    console.log('App module constructor');
+  }
+}

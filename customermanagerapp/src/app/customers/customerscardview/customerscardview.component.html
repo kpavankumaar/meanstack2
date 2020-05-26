@@ -1,1 +1,25 @@
-<p>customerscardview works!</p>
+<div class="row">
+    <div class="col-sm-3" *ngFor='let item of customersData'>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-sm-12">
+                    <h5 class="card-title">{{item.firstName}}{{item.lastName}}</h5>
+                </div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="/assets/images/{{item.gender | lowercase}}.png" class="card-img" alt="...">
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="card-text">
+                                {{item.city}}
+                            </p>
+                            <p class="card-text">
+                                {{item.state.name}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

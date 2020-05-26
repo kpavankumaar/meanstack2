@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SampleService } from '../sample.service';
 
@@ -20,7 +20,8 @@ export const observerable1$ = Observable.create((item) => {
   styleUrls: ['./basicdetail.component.css'],
   providers: []
 })
-export class BasicdetailComponent implements OnInit {
+export class BasicdetailComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked {
+  property = 'krishna';
   urlData;
   observable$;
   observer$;
@@ -56,5 +57,19 @@ export class BasicdetailComponent implements OnInit {
 
   getData(){
     console.log(this.urlData);
+  }
+  ngAfterViewInit() {
+    console.log('basicdetail component anafterviewinit');
+  }
+  ngAfterViewChecked() {
+    console.log('basicdetail component anafterviewchecked');
+    
+  }
+  ngAfterContentInit(){
+    console.log('basicdetail component ngAfterContentInit');
+  }
+  ngAfterContentChecked(){
+    console.log('basicdetail component ngAfterContentChecked');
+
   }
 }

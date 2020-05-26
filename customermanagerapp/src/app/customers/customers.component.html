@@ -1,1 +1,14 @@
-<p>customers works!</p>
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link active" (click) = "changeDisplay(DisplayModeEnum.card)")>CardView</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" (click) = "changeDisplay(DisplayModeEnum.grid)")>ListView</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" (click) = "changeDisplay(DisplayModeEnum.map)")>MapView</a>
+    </li>
+    
+</ul>
+<app-customerscardview *ngIf = ""></app-customerscardview>
+</div>

@@ -1,1 +1,6 @@
-<p>simple works!</p>
+<p [style.color] = "pData.color">simple works!</p>
+
+<app-basic [sampleItems]="items" (sendChangedDetails)="dataFromChildComp($event)"></app-basic>
+<p>{{data.countValue}}</p>
+<p>{{prop}}</p>
+<app-basicdetail></app-basicdetail>

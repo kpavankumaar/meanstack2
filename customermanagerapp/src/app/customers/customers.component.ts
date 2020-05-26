@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Service } from '../core/service/service';
 
 @Component({
   selector: 'app-customers',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
-
-  constructor() { }
+  customersData;
+  displayMode;
+  constructor(private data: Service) { }
 
   ngOnInit(): void {
+    this.displayMode = DisplayModeEnum.card;
+    this.data.getCustomers().subscribe(res => {
+      console.log(res);
+      this.customersData = res;
+    });
   }
+  changeDisplay( mode: DisplayModeEnum){
+    this.displayMode = mode;
 
+  }
+}
+enum DisplayModeEnum {
+  card = 0,
+  grid = 1,
+  map = 2
 }

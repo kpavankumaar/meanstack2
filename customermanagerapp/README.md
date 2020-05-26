@@ -25,3 +25,14 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## api call list
+1. get details of a customer    /api/customers/:id
+2. post add customer            /api/customers
+3. get all customers            /api/customers
+4. update customer details      /api/customers/:id
+5. Delete customer              /api/customers/:id
+6. Get customer orders          /api/orders/:id
+7. get states                   /api/states
+#login 
+8. post  login                  /api/auth/login
+9. post logout                  /api/auth/logout

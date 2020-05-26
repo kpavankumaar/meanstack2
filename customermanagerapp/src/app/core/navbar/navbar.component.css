@@ -1,0 +1,17 @@
+nav{
+    background-color:#027FF4;
+}
+#navbarNav li{
+    padding:2px 5px;
+}
+#navbarNav li.active{
+    background-color:#EFEFEF;
+    border-radius: 5px;
+}
+#navbarNav li.active a{
+    color:#8D8D8D;
+    font-weight: 600;
+}
+.navbar-brand{
+    color:#ffffff;
+}
