@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-customerscardview',
@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class CustomerscardviewComponent implements OnInit {
 
   constructor() { }
-
+  @Input() customers;
+  customersData;
   ngOnInit(): void {
+    this.customersData = this.customers;
   }
 
 }
