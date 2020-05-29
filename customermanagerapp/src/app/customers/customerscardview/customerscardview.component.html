@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="col-sm-12">
-                    <h5 class="card-title">{{item.firstName}}{{item.lastName}}</h5>
+                    <h5 class="card-title"> <a [routerLink] = "['/customers',item.id,'detail']">{{item.firstName}}{{item.lastName}}</a></h5>
                 </div>
                 <div class="col-sm-12">
                     <div class="row">

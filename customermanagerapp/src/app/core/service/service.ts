@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError, filter } from 'rxjs/operators';
 @Injectable({
@@ -13,5 +13,20 @@ export class Service {
       map(res => res)
     );
   }
-
+  getCustomer(id: number): Observable<any>{
+    return this.http.get(this.url + '/' + id).pipe(
+      map(customer => {
+        return customer;
+      }),
+      catchError(this.handleError)
+    );
+  }
+  private handleError(err: HttpErrorResponse){
+    console.error('server error', err);
+    if (err.error instanceof Error){
+      const errMessage = err.error.message;
+      return Observable.throw(errMessage);
+    }
+    return Observable.throw(err);
+  }
 }
