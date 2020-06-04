@@ -1,4 +1,6 @@
 <p>customerdetailview works!</p>
-<div *ngIf ="customer">
-    {{ customer.firstName }}
+<div >
+    
+    {{customer?.firstName}}
+    <!-- {{ (customer | async)?.firstName }} -->
 </div>

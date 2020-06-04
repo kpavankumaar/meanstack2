@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Service } from '../../core/service/service';
 
 @Component({
   selector: 'app-editcustomer',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditcustomerComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private route: ActivatedRoute, private httpService: Service) { }
+  customer;
   ngOnInit(): void {
+    console.log('this', this);
+    this.route.parent.params.subscribe((params: Params) => {
+      console.log(params);
+      const id = +params['id'];
+      if (id) {
+        this.httpService.getCustomer(id).subscribe((customer) => {
+          this.customer = customer[0];
+          console.log(this.customer);
+        });
+      }
+    });
   }
+  submit(){
 
+  }
 }

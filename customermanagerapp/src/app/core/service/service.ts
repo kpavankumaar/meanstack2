@@ -15,9 +15,7 @@ export class Service {
   }
   getCustomer(id: number): Observable<any>{
     return this.http.get(this.url + '/' + id).pipe(
-      map(customer => {
-        return customer;
-      }),
+      map(customer => customer),
       catchError(this.handleError)
     );
   }
