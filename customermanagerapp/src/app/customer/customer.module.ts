@@ -7,6 +7,7 @@ import { CustomerComponent } from './customer.component';
 import { CustomerorderComponent } from './customerorder/customerorder.component';
 import { EditcustomerComponent } from './editcustomer/editcustomer.component';
 import { CustomerdetailviewComponent } from './customerdetailview/customerdetailview.component';
+import { CanActivateGuard } from './can-activate.guard';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { CustomerdetailviewComponent } from './customerdetailview/customerdetail
     CommonModule,
     FormsModule,
     CustomerRoutingModule
-  ]
+  ],
+  providers: [CanActivateGuard]
 })
 export class CustomerModule { }
