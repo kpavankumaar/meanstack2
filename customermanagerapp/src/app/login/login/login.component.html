@@ -2,7 +2,7 @@
     <header>
         <h3>  <span class="glyphicon glyphicon-lock"></span>Login</h3>
     </header>
-    <form [formGroup] = "loginForm" (ngSubmit) = "submit(loginForm)" class="login-form">
+    <form [formGroup] = "loginForm" (ngSubmit) = "submit(loginForm.value)" class="login-form">
         <div class="login">
             <div class="row">
                 <div class="col-sm-2">
@@ -29,7 +29,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <button type="submit" class="btn btn-success" [disabled] = "!loginForm.valid"> large</button>
+                    <button type="submit" class="btn btn-success" [disabled] = "!loginForm.valid"> Login </button>
                 </div>
             </div>
         </div>

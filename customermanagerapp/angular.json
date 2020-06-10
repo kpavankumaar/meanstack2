@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "customermanagerapp"
+  "defaultProject": "customermanagerapp",
+  "cli": {
+    "analytics": "9a8d53dd-3a4a-40e5-ab94-515c1771ff4c"
+  }
 }

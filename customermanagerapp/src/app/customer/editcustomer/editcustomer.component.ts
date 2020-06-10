@@ -18,7 +18,7 @@ export class EditcustomerComponent implements OnInit {
       const id = +params['id'];
       if (id) {
         this.httpService.getCustomer(id).subscribe((customer) => {
-          this.customer = customer[0];
+          this.customer = customer;
           console.log(this.customer);
         });
       }

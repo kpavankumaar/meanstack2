@@ -29,7 +29,11 @@ export class LoginComponent implements OnInit {
   submit(value){
       this.authService.login(value).subscribe((status: boolean) => {
         if (status){
+          this.router.navigate([this.authService.redirectUrl]);
+          this.authService.redirectUrl = "";
           // if()
+        }else{
+          // else display forgot password or authentication failed
         }
       });
   }
